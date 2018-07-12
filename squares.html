@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <style>
+            .squareContainer{
+                display: flex;
+                justify-content: space-around;
+                padding-bottom: 50px;
+            }
+            .buttonContainer{
+                display: flex;
+                flex-direction:column;
+            }
+            button{
+                height: 50px;
+                cursor: pointer;
+            }
+            .square{
+                width: 100px;
+                height: 100px;
+                border: solid 1px black;
+            }
+            #red {
+                background-color: red;
+            }
+            #green{
+                background-color: green;
+            }
+            #blue{
+                background-color: blue;
+            }
+        </style>
+        <body>
+            <h1>The Square Demo</h1>
+            <div id = 'div1' class = 'squareContainer'>
+                <div id ='red' class='square'></div>
+                <div id ='green' class='square'></div>
+                <div id ='blue' class='square'></div>
+            </div>
+            <div class='buttonContainer' id='div3'>
+                <button id='hideAllTheSquares'> Hide All The Squares </button>
+                <button id='showAllTheSquares'> Show All The Squares </button>
+                <button id='toggleRed'> Toggle Red </button>
+                <button id='toggleBlue'> Toggle Blue </button>
+                <button id='toggleGreen'> Toggle Green </button>
+            </div>
+            <script>
+                const toggleRed = document.getElementById('toggleRed')
+                const redSquare = document.getElementById('red');
+                toggleRed.addEventListener('click', ()=>{
+                    if(redSquare.style.display !== 'none'){
+                        redSquare.style.display = 'none';
+                    } else {
+                        redSquare.style.display = "block";
+                    }
+                });
+                const toggleGreen = document.getElementById('toggleGreen')
+                const greenSquare = document.getElementById('green');
+                toggleGreen.addEventListener('click', ()=>{
+                    if(greenSquare.style.display !== 'none'){
+                        greenSquare.style.display = 'none';
+                    } else {
+                        greenSquare.style.display = "block";
+                    }
+                });
+                const toggleBlue = document.getElementById('toggleBlue')
+                const blueSquare = document.getElementById('blue');
+                toggleBlue.addEventListener('click', ()=>{
+                    if(blueSquare.style.display !== 'none'){
+                        blueSquare.style.display = 'none';
+                    } else {
+                        blueSquare.style.display = "block";
+                    }
+                });
+                const hideAll = document.getElementById('hideAllTheSquares')
+                hideAll.addEventListener('click', ()=>{
+                    (redSquare.style.display = blueSquare.style.display = greenSquare.style.display= 'none')
+                });
+                const showAll = document.getElementById('showAllTheSquares')
+                showAll.addEventListener('click', ()=>{
+                    (redSquare.style.display = blueSquare.style.display = greenSquare.style.display= 'block')
+                });
+
+                const colors = ['yellow', 'orange'];
+
+                colors.forEach((color)=>{
+                    const buttonDiv = document.getElementById('div3');
+                    const button = document.createElement('button');
+                    const textButton = document.createTextNode('Toggle '+color)
+                    button.appendChild(textButton);
+                    buttonDiv.appendChild(button);
+                })
+
+
+
+
+
+
+
+
+
+            </script>
+        </body>
+    </head>
+</html>
